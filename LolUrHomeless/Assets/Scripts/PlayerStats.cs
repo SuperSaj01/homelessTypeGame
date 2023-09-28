@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     public float drain {get; set;}
     public float energyDrain = 20f;
 
-    public Slider energySlider; 
+    public Slider energySlider;
 
     private PlayerMovement playerMovment;
 

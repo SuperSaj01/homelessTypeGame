@@ -40,6 +40,7 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("energy ran out");
         }
 
+        energySlider.value = energy;
         
     }
 

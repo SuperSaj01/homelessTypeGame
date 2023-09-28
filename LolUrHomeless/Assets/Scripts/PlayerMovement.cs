@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
     
+    interface Interactable
+    {
+        void Interact();
+    }
+
+    public event Action 
+
     [SerializeField] private float speed = 4f;
     private float walkSpeed = 4;
     private float runSpeed = 9;

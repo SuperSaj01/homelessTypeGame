@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,21 +6,23 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
-    interface Interactable
-    {
-        void Interact();
-    }
 
-    public event Action 
+    public event Action PlayerInteract;
 
     [SerializeField] private float speed = 4f;
     private float walkSpeed = 4;
     private float runSpeed = 9;
-    
+
+    public float range = 2.5f;
+
     private float horizontal;
     private float vertical;
     private Vector3 moveDir;
+
+
+    public Camera cam;
+
+
 
     public bool isMoving;
 
@@ -32,8 +35,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MoveInput();
-        
 
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Interact();
+        }
+        
     }
 
     void MoveInput()
@@ -56,4 +63,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    void Interact()
+    {
+
+        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, range))
+        {
+            if(hit.transform.TryGetComponent(out BedSleep bedSleep))
+            {
+              PlayerInteract?.Invoke();  
+            }
+        }
+        
+                
+        
+    }
+
 }

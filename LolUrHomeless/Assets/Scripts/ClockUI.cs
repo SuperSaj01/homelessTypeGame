@@ -75,4 +75,14 @@ public class ClockUI : MonoBehaviour
         timeText.text = hoursString + ":" + minutesString;
         dayText.text = "Day " + Mathf.Floor(day);
     }
+
+    int CalculateTimeSkip(float hours, float minutes)
+    {
+        if(hours == 0 && minutes == 0)
+        {
+            return null;
+        }
+
+    }
+    
 }

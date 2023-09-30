@@ -78,11 +78,7 @@ public class ClockUI : MonoBehaviour
 
     int CalculateTimeSkip(float hours, float minutes)
     {
-        if(hours == 0 && minutes == 0)
-        {
-            return 0;
-        }
-        else return 0;
+        return 0;
 
     }
     

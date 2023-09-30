@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float walkSpeed = 4;
     private float runSpeed = 9;
 
-    public float range = 4f;
+    public float range = 2.5f;
 
     private float horizontal;
     private float vertical;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, range))
         {
-            if(hit.transform.TryGetComponent(out IInteractable interactable))
+            if(hit.transform.TryGetComponent(out BedSleep bedSleep))
             {
               PlayerInteract?.Invoke();  
             }

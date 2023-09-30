@@ -80,8 +80,9 @@ public class ClockUI : MonoBehaviour
     {
         if(hours == 0 && minutes == 0)
         {
-            return null;
+            return 0;
         }
+        else return 0;
 
     }
     

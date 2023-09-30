@@ -2,29 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BedSleep : MonoBehaviour
+public class BedSleep : MonoBehaviour, IInteractable
 {
     
     [SerializeField] private PlayerMovement player;
     [SerializeField] private ClockUI clock;
 
-
+    [SerializeField] private GameObject bedMenu;
 
     void Awake()
     {
         player.PlayerInteract += onPlayerInteract;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void onPlayerInteract()
     {
         
-    }
 
-    void onPlayerInteract()
-    {
-        Debug.Log("slept");
     }
 
 

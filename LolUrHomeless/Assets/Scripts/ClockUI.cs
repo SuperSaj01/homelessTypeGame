@@ -30,21 +30,17 @@ public class ClockUI : MonoBehaviour
     {
         timeText = time.GetComponent<Text>();
         dayText = dayObj.GetComponent<Text>();
-
-        OutputTime(1f, 0f);
     }
 
     private void Update()
     {
-        if(!resumeTime)
+        if(Input.GetKeyDown(KeyCode.J))
         {
-            OnTimeNormal();
-        }
+            CalculateTimeSkip(1f, 0f);
 
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            day += (6f / (24 * 60));
         }
+        
+        OnTimeNormal();
     }
 
     void OnTimeNormal()
@@ -76,10 +72,11 @@ public class ClockUI : MonoBehaviour
         dayText.text = "Day " + Mathf.Floor(day);
     }
 
-    int CalculateTimeSkip(float hours, float minutes)
+    public void CalculateTimeSkip(float hours, float minutes)
     {
-        return 0;
+        day += (minutes / (24 * 60));
 
+        day += (hours / 24);
     }
     
 }

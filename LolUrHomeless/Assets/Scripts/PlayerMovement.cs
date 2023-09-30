@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, range))
         {
-            if(hit.transform.TryGetComponent(out BedSleep bedSleep))
+            if(hit.transform.TryGetComponent(out IIinteractable interactable))
             {
               PlayerInteract?.Invoke();  
             }

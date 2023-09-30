@@ -24,6 +24,7 @@ public class PlayerStats : MonoBehaviour
         warmth = maxStat;
         energy = maxStat;
         drain = 10f;
+
     }
 
     // Update is called once per frame

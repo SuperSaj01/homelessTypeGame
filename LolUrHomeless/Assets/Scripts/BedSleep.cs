@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BedSleep : MonoBehaviour
+public class BedSleep : MonoBehaviour, IIinteractable
 {
     
     [SerializeField] private PlayerMovement player;
@@ -16,13 +16,8 @@ public class BedSleep : MonoBehaviour
         player.PlayerInteract += onPlayerInteract;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    void onPlayerInteract()
+    public void onPlayerInteract()
     {
         Debug.Log("slept");
     }

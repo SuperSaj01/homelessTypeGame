@@ -29,6 +29,11 @@ public class BedSleep : MonoBehaviour, IIinteractable
         normalTimeRun = Time.timeScale;
     }
 
+    void Update()
+    {
+         
+    }
+
     public void onPlayerInteract()
     {
         isMenuActive = true;
@@ -41,18 +46,16 @@ public class BedSleep : MonoBehaviour, IIinteractable
     public void CalculateHoursOfSleep(int hours)
     {
         this.hours += hours;
-
-        if(hours < 0)
-        {
-            hours = 0;
-        }
-
-        else
-        {
-            string hoursAdded = this.hours.ToString("00");
         
-            hoursAddedOnText.text = hoursAdded;
+        if(this.hours < 0)
+        {
+            this.hours = 0;
         }
+
+        string hoursAdded = Mathf.Clamp(this.hours, 0, 99).ToString("00");
+    
+        hoursAddedOnText.text = hoursAdded;
+    
        
     }
 

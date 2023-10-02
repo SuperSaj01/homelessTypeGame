@@ -30,11 +30,10 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerMovment.isMoving)
-        {
-            energy -= Time.deltaTime * energyDrain;
-            hunger -= Time.deltaTime * energyDrain;
-        }
+        energy -= Time.deltaTime * energyDrain;
+        hunger -= Time.deltaTime * energyDrain;
+        
+        
 
         if(energy <= 0)
         {

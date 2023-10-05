@@ -7,7 +7,7 @@ public class Campfire : MonoBehaviour
     
     private float warmthGivenOut = -10;
     [SerializeField] private Transform playerPos;
-    private float maxDistanceFromPlayer = 3f;
+    private float maxDistanceFromPlayer = 10f;
 
     void Update()
     {

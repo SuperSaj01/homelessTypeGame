@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     
-    private float hunger, warmth, energy;
+    public float hunger, warmth, energy;
     float maxStat = 100f;
 
     public float money;
@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour
     public Text moneyblaty;
 
     public Slider energySlider;
+    public Slider warmthSlider;
+    public Slider hungerSlider;
 
     private PlayerMovement playerMovment;
 
@@ -45,6 +47,8 @@ public class PlayerStats : MonoBehaviour
         }
 
         energySlider.value = energy;
+        warmthSlider.value = warmth;
+        hungerSlider.value = hunger;
         
         moneyblaty.text = money.ToString();
 

@@ -10,7 +10,7 @@ public class BedSleep : MonoBehaviour, IIinteractable
     private bool isMenuActive;
 
     [SerializeField] private ClockUI clock;
-
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject sleepMenu;
     [SerializeField] private GameObject addHours;
     [SerializeField] private GameObject subtractHours;
@@ -49,12 +49,20 @@ public class BedSleep : MonoBehaviour, IIinteractable
     
         hoursAddedOnText.text = hoursAdded;
     
+        
        
     }
 
     public void Confirm()
     {
         clock.CalculateTimeSkip(hours, 0f);
+        CalculateSleepReplenish();
+        
+    }
+
+    private void CalculateSleepReplenish()
+    {
+        player.GetComponent<PlayerStats>().energy += hours * 10f;
     }
 
     public void OnExit()

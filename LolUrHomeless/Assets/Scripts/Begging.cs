@@ -1,40 +1,29 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BedSleep : MonoBehaviour, IIinteractable
+public class Begging : MonoBehaviour, IIinteractable
 {
-    
-    private bool isMenuActive;
-
+    public GameObject player;
     [SerializeField] private ClockUI clock;
-
-    [SerializeField] private GameObject sleepMenu;
-    [SerializeField] private GameObject addHours;
-    [SerializeField] private GameObject subtractHours;
-
-    private float hours; 
+    [SerializeField] private GameObject begMenu;
+    private float normalTimeRun;
     [SerializeField] private Text hoursAddedOnText;
+    private float hours;
 
-    private float normalTimeRun; 
-
-
-    void Awake()
+  void Awake()
     {
-        sleepMenu.SetActive(false);
+        begMenu.SetActive(false);
         normalTimeRun = Time.timeScale;
     }
 
     public void onPlayerInteract()
     {
-        isMenuActive = true;
         Cursor.lockState = CursorLockMode.Confined;
-        sleepMenu.SetActive(true);
+        begMenu.SetActive(true);
         Time.timeScale = 0;
     }
-
 
     public void CalculateHoursOfSleep(int hours)
     {
@@ -44,28 +33,31 @@ public class BedSleep : MonoBehaviour, IIinteractable
         {
             this.hours = 0;
         }
-
+        
+        
+        
         string hoursAdded = Mathf.Clamp(this.hours, 0, 99).ToString("00");
     
         hoursAddedOnText.text = hoursAdded;
-    
-       
+    }
+
+    void CalculateMoneyEarned(float hours)
+    {
+        player.GetComponent<PlayerStats>().money += hours;
+        Debug.Log("grg");
     }
 
     public void Confirm()
     {
-        clock.CalculateTimeSkip(hours, 0f);
+        CalculateMoneyEarned(hours);
     }
 
     public void OnExit()
     {
+        begMenu.SetActive(false);
         Confirm();
-        isMenuActive = false;
         Cursor.lockState = CursorLockMode.Locked;
-        sleepMenu.SetActive(false);
         Time.timeScale = normalTimeRun;
 
-        hours = 0;
     }
-
 }

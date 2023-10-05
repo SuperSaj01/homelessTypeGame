@@ -9,8 +9,12 @@ public class PlayerStats : MonoBehaviour
     private float hunger, warmth, energy;
     float maxStat = 100f;
 
+    public float money;
+
     public float drain {get; set;}
     public float energyDrain = 20f;
+
+    public Text moneyblaty;
 
     public Slider energySlider;
 
@@ -42,6 +46,8 @@ public class PlayerStats : MonoBehaviour
 
         energySlider.value = energy;
         
+        moneyblaty.text = money.ToString();
+
     }
 
 

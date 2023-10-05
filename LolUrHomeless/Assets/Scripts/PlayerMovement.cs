@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     private Vector3 moveDir;
 
-
     public Camera cam;
 
 
@@ -28,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+        PlayerInteract += Interact;
     }
 
     
@@ -38,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.E))
         {
-            Interact();
+            PlayerInteract?.Invoke();
         }
         
     }
@@ -70,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(hit.transform.TryGetComponent(out IIinteractable interactable))
             {
-              PlayerInteract?.Invoke();  
+              interactable.onPlayerInteract();
             }
         }
         

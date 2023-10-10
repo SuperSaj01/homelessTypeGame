@@ -21,9 +21,17 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera cam;
 
+    private Inventory inventory;
+    [SerializeField] private UI_Inventory uiInventory;
 
 
     public bool isMoving;
+
+    void Awake()
+    {
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
+    }
 
     void Start()
     {
